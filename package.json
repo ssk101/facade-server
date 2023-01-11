@@ -1,6 +1,6 @@
 {
   "name": "@steelskysoftware/facade-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "steelskysoftware",
   "license": "MIT",
   "type": "module",
@@ -20,7 +20,7 @@
     "facade-server": "./bin/facade-server.js"
   },
   "dependencies": {
-    "@steelskysoftware/facade-toolbox": "workspace:*",
+    "@steelskysoftware/facade-toolbox": "^1.0.0",
     "apicache-plus": "^2.2.2",
     "cli-highlight": "^2.1.11",
     "compression": "^1.7.4",
