@@ -15,7 +15,7 @@ export async function router(settings) {
     title = 'Untitled',
     src = 'application.js',
     namespace = '@steelskysoftware/facade-server',
-    useRedis = true,
+    useRedis = false,
     routesBase = '',
   } = settings
 
@@ -79,7 +79,9 @@ export async function router(settings) {
         return `data-${kebabCase(k)}`
       }), { src })
 
-      res.render('index', req)
+      if(settings.viewEngine) {
+        res.render('index', req)
+      }
     })
   }
 

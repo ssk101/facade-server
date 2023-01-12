@@ -82,7 +82,7 @@ export async function createApp(config = {}) {
     buildDir: 'build',
     publicDir: 'public',
     viewsDir: 'views',
-    viewEngine: 'pug',
+    viewEngine: false,
     favicon: '',
     db: {},
     json: {
@@ -124,9 +124,13 @@ export async function createApp(config = {}) {
     ))
   }
 
-  if(settings.client) {
+
+  if(settings.viewEngine) {
     app.set('views', path.join(process.cwd(), settings.viewsDir))
     app.set('view engine', settings.viewEngine)
+  }
+
+  if(settings.client) {
     app.use(express.static(settings.buildDir))
     app.use(express.static(settings.publicDir))
   }
