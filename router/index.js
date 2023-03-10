@@ -1,5 +1,6 @@
 import express from 'express'
 import apicache from 'apicache-plus'
+import path from 'path'
 import { Heap, mapKeys, kebabCase } from '@steelskysoftware/facade-toolbox'
 import { Joi, joi } from '../middlewares/joi.js'
 import { serialize } from '../middlewares/serialize.js'
@@ -81,6 +82,8 @@ export async function router(settings) {
 
       if(settings.viewEngine) {
         res.render('index', req)
+      } else {
+        res.sendFile(path.join(process.cwd(), settings.publicDir, 'index.html'))
       }
     })
   }
