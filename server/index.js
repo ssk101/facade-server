@@ -84,6 +84,7 @@ export async function createApp(config = {}) {
     viewsDir: 'views',
     viewEngine: false,
     favicon: '',
+    compress: true,
     db: {},
     json: {
       limit: '50MB',
@@ -108,7 +109,9 @@ export async function createApp(config = {}) {
   app.enable('trust proxy')
   app.disable('x-powered-by')
   app.set('startTime', new Date())
-  app.use(compression())
+  if(settings.compress) {
+    app.use(compression())
+  }
   app.use(express.json(settings.json))
 
   if(settings.cors) {
@@ -123,7 +126,6 @@ export async function createApp(config = {}) {
       path.join(process.cwd(), settings.publicDir, settings.favicon)
     ))
   }
-
 
   if(settings.viewEngine) {
     app.set('views', path.join(process.cwd(), settings.viewsDir))

@@ -49,16 +49,24 @@ export async function router(settings) {
   for(const [path, route] of Object.entries(routes)) {
     const {
       method = 'get',
-      handlers,
+      handlers = [],
+      handler,
       cacheDuration,
       serialization = {},
     } = route
 
     const prefixedPath = `${routesBase}${path}`
+    const allHandlers = [...handlers, handler]
+      .filter(handler => handler)
+
+    if(!allHandlers.length) {
+      heap.warn(`Warning: no route handler(s) defined for ${path}!`)
+      continue
+    }
 
     const args = [
       cacheDuration ? cache(cacheDuration) : null,
-      ...handlers.map(handler => {
+      allHandlers.map(handler => {
         if(handler === Object(handler) && handler.validations) {
           return joi(handler.validations)
         }

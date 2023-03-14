@@ -11,8 +11,11 @@ const keyTransformers = {
 }
 
 export function serialize(opts, handler) {
-  const { transformKeys = 'camelCase' } = opts
-  const keyTransformer = keyTransformers[transformKeys]
+  let keyTransformer
+
+  if(opts.transformKeys !== false) {
+    keyTransformer = keyTransformers[opts.transformKeys || 'camelCase']
+  }
 
   return async function(req, res, next) {
     try {
