@@ -31,6 +31,7 @@ export function serialize(opts, handler) {
         res.json(keyTransformer ? keyTransformer(response) : response)
       }
     } catch (err) {
+      console.error(err)
       next(err)
     }
   }
