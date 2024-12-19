@@ -1,15 +1,15 @@
 {
-  "name": "@steelskysoftware/facade-server",
+  "name": "@ssk101/facade-server",
   "version": "1.0.2",
-  "author": "steelskysoftware",
+  "author": "ssk101",
   "license": "MIT",
   "type": "module",
   "exports": "./index.js",
   "module": "index.js",
   "bugs": {
-    "url": "https://github.com/steelskysoftware/facade-server/issues"
+    "url": "https://github.com/ssk101/facade-server/issues"
   },
-  "homepage": "https://github.com/steelskysoftware/facade-server#readme",
+  "homepage": "https://github.com/ssk101/facade-server#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -20,7 +20,7 @@
     "facade-server": "./bin/facade-server.js"
   },
   "dependencies": {
-    "@steelskysoftware/facade-toolbox": "^1.0.0",
+    "@ssk101/facade-toolbox": "^1.0.0",
     "apicache-plus": "^2.2.2",
     "cli-highlight": "^2.1.11",
     "compression": "^1.7.4",
