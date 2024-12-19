@@ -20,7 +20,7 @@
     "facade-server": "./bin/facade-server.js"
   },
   "dependencies": {
-    "@ssk101/facade-toolbox": "^1.0.0",
+    "@ssk101/facade-toolbox": "https://github.com/ssk101/facade-toolbox.git",
     "apicache-plus": "^2.2.2",
     "cli-highlight": "^2.1.11",
     "compression": "^1.7.4",
